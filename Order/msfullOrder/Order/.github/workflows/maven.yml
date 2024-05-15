@@ -1,0 +1,47 @@
+# name: Order-Service-CI/CD
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
+
+#     - name: Set up JDK 17
+#       uses: actions/setup-java@v2
+#       with:
+#         distribution: 'adopt'
+#         java-version: '17'
+
+#     - name: Build with Maven
+#       run: mvn clean install
+
+
+
+
+
+
+name: Check-POM-Path
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check_path:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: List files in working directory
+      run: ls -R
+

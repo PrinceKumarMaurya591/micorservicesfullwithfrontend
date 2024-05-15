@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    image: my-api-gateway:latest
+    container_name: api-gateway-container
+    ports:
+      - "9094:9094"
+    environment:
+      - SERVER_PORT=9094
+      - SPRING_APPLICATION_NAME=API_Gateway
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka
+    depends_on:
+      - eureka-server
+
+  eureka-server:
+    image: your-eureka-image:tag
+    container_name: eureka-server-container
+    ports:
+      - "8761:8761"
+
+  product-service:
+    image: your-product-service-image:tag
+    container_name: product-service-container
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka
+
+  order-service:
+    image: your-order-service-image:tag
+    container_name: order-service-container
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka
+
+  identity-service:
+    image: your-identity-service-image:tag
+    container_name: identity-service-container
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka
+
+  user-service:
+    image: your-user-service-image:tag
+    container_name: user-service-container
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka

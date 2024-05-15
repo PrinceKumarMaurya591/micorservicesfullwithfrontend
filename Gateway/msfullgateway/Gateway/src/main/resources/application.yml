@@ -1,0 +1,28 @@
+#server:
+#  port: 9094
+#spring:
+#  application:
+#    name: API_Gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: Product_Service
+#          uri: lb://Product_Service
+#          predicates:
+#            - Path=/api/products/**
+#        - id: Order_Service
+#          uri: lb://Order_Service
+#          predicates:
+#            - Path=/api/orders/**
+#        - id: IDENTITY_SERVICE
+#          uri: lb://IDENTITY_SERVICE
+#          predicates:
+#            - Path=/api/auth/**
+#        - id: User_Service
+#          uri: lb://User_Service
+#          predicates:
+#            - Path=/api/users/**
+#  eureka:
+#    client:
+#      serviceUrl:
+#        defaultZone: http://localhost:9093/eureka/
