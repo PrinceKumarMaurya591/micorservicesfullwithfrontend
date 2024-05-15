@@ -1,0 +1,9 @@
+package com.stackfortech.urlShorteningService.ipservice;
+
+import javax.servlet.http.HttpServletRequest;
+
+public interface IPRequestService {
+	
+	String getClientIp(HttpServletRequest request);
+
+}
